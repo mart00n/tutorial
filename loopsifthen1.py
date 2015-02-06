@@ -4,9 +4,10 @@ Created on Feb 1, 2015
 @author: mart00n
 
 '''
+import hashlib
 print("Please set a username and password:")
 username = input('username:')
-password = input('password:')
+password = hashlib.sha224(input('password:'))
 print("Enter a command:")
 state = 1
 
@@ -15,7 +16,7 @@ while state == 1:
     if command == "lock":
         print("System is locked, please enter your username and password:")
         usrentry = input("Username:")
-        pwentry = input("Password:")
+        pwentry =  hashlib.sha224(input("Password:"))
         if usrentry == username and pwentry == password:
             print("System is unlocked!")
         else:
