@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 '''
 Created on Feb 1, 2015
 
@@ -7,7 +8,7 @@ Created on Feb 1, 2015
 import hashlib
 print("Please set a username and password:")
 username = input('username:')
-password = hashlib.sha224(input('password:'))
+password = hashlib.sha224(input('password:').encode('utf-8'))
 print("Enter a command:")
 state = 1
 
@@ -16,7 +17,7 @@ while state == 1:
     if command == "lock":
         print("System is locked, please enter your username and password:")
         usrentry = input("Username:")
-        pwentry =  hashlib.sha224(input("Password:"))
+        pwentry =  hashlib.sha224(input("Password:").encode('utf-8'))
         if usrentry == username and pwentry == password:
             print("System is unlocked!")
         else:
